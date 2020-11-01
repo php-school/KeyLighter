@@ -1,3 +1,5 @@
+# TEMPORARY FORK OF https://github.com/kadet1090/KeyLighter FOR PHP8 SUPPORT
+
 ![Logo](http://kadet.net/keylighter/logo.png)
 
 [![Packagist](https://img.shields.io/packagist/v/kadet/keylighter.svg?style=flat-square)](https://packagist.org/packages/kadet/keylighter)
