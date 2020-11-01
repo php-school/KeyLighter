@@ -20,8 +20,9 @@ use Kadet\Highlighter\Language\GreedyLanguage;
 use Kadet\Highlighter\Language\Language;
 use Kadet\Highlighter\Parser\Rule;
 use Kadet\Highlighter\Parser\Rules;
+use PHPUnit\Framework\TestCase;
 
-class RulesTest extends \PHPUnit_Framework_TestCase
+class RulesTest extends TestCase
 {
     public function testAddsRule()
     {
@@ -89,19 +90,19 @@ class RulesTest extends \PHPUnit_Framework_TestCase
             ]
         ]);
 
-        $this->assertInternalType('array', $rules->rules('token'));
+        $this->assertIsArray($rules->rules('token'));
         $this->assertContainsOnlyInstancesOf(Rule::class, $rules->rules('token'));
         $this->assertEquals($rule, $rules->rule('token'));
     }
 
-    /** @expectedException \InvalidArgumentException */
     public function testUndefinedRule() {
+        $this->expectException('InvalidArgumentException');
         $rules = new Rules($this->getLanguageMock());
         $rules->rules('nope');
     }
 
-    /** @expectedException \LogicException */
     public function testWrongFormat() {
+        $this->expectException('LogicException');
         $rules = new Rules($this->getLanguageMock());
         $rules->addMany([
             'token' => "string",
@@ -115,7 +116,7 @@ class RulesTest extends \PHPUnit_Framework_TestCase
 
         $rules = new Rules($first);
         $this->assertSame($first, $rules->getLanguage());
-        
+
         $rules->setLanguage($second);
         $this->assertSame($second, $rules->getLanguage());
     }

@@ -19,15 +19,16 @@ use Kadet\Highlighter\Parser\Rule;
 use Kadet\Highlighter\Parser\Token\Token;
 use Kadet\Highlighter\Parser\TokenFactory;
 use Kadet\Highlighter\Parser\UnprocessedTokens;
+use PHPUnit\Framework\TestCase;
 
-class TokenListTest extends \PHPUnit_Framework_TestCase
+class TokenListTest extends TestCase
 {
     /**
      * @var TokenFactory
      */
     private $_factory;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->_factory = new TokenFactory(Token::class);
     }
@@ -95,7 +96,7 @@ class TokenListTest extends \PHPUnit_Framework_TestCase
             array_values($list->toArray())
         );
     }
-    
+
     public function testTokenSortingEndPrecedesStart()
     {
         $tokens    = [];

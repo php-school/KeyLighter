@@ -20,12 +20,13 @@ use Kadet\Highlighter\Matcher\WholeMatcher;
 use Kadet\Highlighter\Parser\Rule;
 use Kadet\Highlighter\Parser\Token\Token;
 use Kadet\Highlighter\Parser\Validator\DelegateValidator;
+use PHPUnit\Framework\TestCase;
 
-class RuleTest extends \PHPUnit_Framework_TestCase
+class RuleTest extends TestCase
 {
     public function testMatching()
     {
-        $matcher = $this->getMock('Kadet\Highlighter\Matcher\MatcherInterface');
+        $matcher = $this->createMock('Kadet\Highlighter\Matcher\MatcherInterface');
         $tokens  = [
             new Token(null, ['token.name', 'pos' => 15])
         ];
@@ -60,10 +61,8 @@ class RuleTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($rule->factory, $factory);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testThrowsOnWrongValidator() {
+        $this->expectException('InvalidArgumentException');
         new Rule(null, [
             'context' => 'nope'
         ]);
@@ -92,7 +91,7 @@ class RuleTest extends \PHPUnit_Framework_TestCase
     }
 
     public function testMatcherReturning() {
-        $matcher = $this->getMock(MatcherInterface::class);
+        $matcher = $this->createMock(MatcherInterface::class);
 
         $rule = new Rule($matcher);
         $this->assertSame($matcher, $rule->getMatcher());
@@ -100,11 +99,11 @@ class RuleTest extends \PHPUnit_Framework_TestCase
 
     public function testMatcherExchange()
     {
-        $matcher = $this->getMock(MatcherInterface::class);
+        $matcher = $this->createMock(MatcherInterface::class);
 
-        $rule = new Rule($this->getMock(MatcherInterface::class));
+        $rule = new Rule($this->createMock(MatcherInterface::class));
         $rule->setMatcher($matcher);
-        
+
         $this->assertSame($matcher, $rule->getMatcher());
     }
 }

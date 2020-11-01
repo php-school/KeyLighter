@@ -197,11 +197,10 @@ class LanguageTest extends MatcherTestCase
         $this->assertEquals('foo', $language->bar);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testWrongArgumentForParse()
     {
+        $this->expectException(\InvalidArgumentException::class);
+
         $language = new MockGreedyLanguage([
             'test' => 'foo'
         ]);

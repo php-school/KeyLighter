@@ -21,8 +21,9 @@ use Kadet\Highlighter\Parser\Context;
 use Kadet\Highlighter\Parser\Rule;
 use Kadet\Highlighter\Parser\Token\ContextualToken;
 use Kadet\Highlighter\Parser\TokenFactory;
+use PHPUnit\Framework\TestCase;
 
-class ContextualTokenTest extends \PHPUnit_Framework_TestCase
+class ContextualTokenTest extends TestCase
 {
     /**
      * @var TokenFactory
@@ -31,7 +32,7 @@ class ContextualTokenTest extends \PHPUnit_Framework_TestCase
     private $_language;
     private $_rule;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->_factory  = new TokenFactory(ContextualToken::class);
         $this->_language = $this->getLanguageMock();

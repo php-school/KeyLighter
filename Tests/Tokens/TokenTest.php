@@ -30,7 +30,7 @@ class TokenTest extends TokenTestCase
      */
     private $_factory;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->_factory = new TokenFactory(Token::class);
     }
@@ -128,7 +128,7 @@ class TokenTest extends TokenTestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $validator = $this->getMock(Validator::class);
+        $validator = $this->createMock(Validator::class);
         $context   = Context::fromArray([], $language);
 
         $validator->expects($this->once())->method('validate')->with($context, []);

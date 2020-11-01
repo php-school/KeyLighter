@@ -23,7 +23,7 @@ class DelegateRegexMatcherTest extends MatcherTestCase
 {
     public function testCallableInvoking()
     {
-        $mock = $this->getMock('stdClass', ['test']);
+        $mock = $this->getMockBuilder(\stdClass::class)->addMethods(['test'])->getMock();
 
         $factory = $this->getFactory();
 
@@ -41,7 +41,7 @@ class DelegateRegexMatcherTest extends MatcherTestCase
 
     public function testTokenReturning()
     {
-        $mock = $this->getMock('stdClass', ['test']);
+        $mock = $this->getMockBuilder(\stdClass::class)->addMethods(['test'])->getMock();
 
         $factory = $this->getFactory();
 
