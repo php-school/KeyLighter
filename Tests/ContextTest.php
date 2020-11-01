@@ -19,8 +19,9 @@ namespace Kadet\Highlighter\Tests;
 use Kadet\Highlighter\Language\Language;
 use Kadet\Highlighter\Parser\Context;
 use Kadet\Highlighter\Parser\Token\Token;
+use PHPUnit\Framework\TestCase;
 
-class ContextTest extends \PHPUnit_Framework_TestCase
+class ContextTest extends TestCase
 {
     public function testLanguageBinding()
     {
@@ -84,7 +85,7 @@ class ContextTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($token->id, $context->find('token.name'));
         $this->assertFalse($context->find('foo'));
     }
-    
+
     public function getLanguageMock() {
         return $this->getMockBuilder(Language::class)
             ->disableOriginalConstructor()

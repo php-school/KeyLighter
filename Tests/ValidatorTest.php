@@ -19,12 +19,13 @@ namespace Kadet\Highlighter\Tests;
 use Kadet\Highlighter\Parser\Context;
 use Kadet\Highlighter\Parser\Validator\DelegateValidator;
 use Kadet\Highlighter\Parser\Validator\Validator;
+use PHPUnit\Framework\TestCase;
 
-class ValidatorTest extends \PHPUnit_Framework_TestCase
+class ValidatorTest extends TestCase
 {
     public function testInValidation() {
         $validator = new Validator(['test']);
-        
+
         $this->assertTrue($validator->validate(Context::fromArray(['test'])));
         $this->assertTrue($validator->validate(Context::fromArray(['test', 'smth'])));
         $this->assertFalse($validator->validate(Context::fromArray([])));

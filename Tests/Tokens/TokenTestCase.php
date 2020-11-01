@@ -19,8 +19,9 @@ namespace Kadet\Highlighter\Tests\Tokens;
 use Kadet\Highlighter\Language\Language;
 use Kadet\Highlighter\Parser\Context;
 use Kadet\Highlighter\Parser\Result;
+use PHPUnit\Framework\TestCase;
 
-abstract class TokenTestCase extends \PHPUnit_Framework_TestCase
+abstract class TokenTestCase extends TestCase
 {
     /** @var  Context */
     protected $_context;
@@ -29,7 +30,7 @@ abstract class TokenTestCase extends \PHPUnit_Framework_TestCase
     /** @var \PHPUnit_Framework_MockObject_MockObject|Result */
     protected $_result;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->_result   = $this->getMockBuilder(Result::class)->disableOriginalConstructor()->getMock();
         $this->_language = $this->getMockBuilder(Language::class)->disableOriginalConstructor()->getMock();

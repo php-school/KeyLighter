@@ -25,3 +25,5 @@ $RECYCLE.BIN/
 /vendor/
 
 # Created by .ignore support plugin (hsz.mobi)
+
+.phpunit.result.cache

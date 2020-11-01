@@ -19,15 +19,16 @@ use Kadet\Highlighter\Formatter\HtmlFormatter;
 use Kadet\Highlighter\Parser\Result;
 use Kadet\Highlighter\Parser\Token\Token;
 use Kadet\Highlighter\Parser\TokenFactory;
+use PHPUnit\Framework\TestCase;
 
-class HtmlFormatterTest extends \PHPUnit_Framework_TestCase
+class HtmlFormatterTest extends TestCase
 {
     /**
      * @var TokenFactory
      */
     private $_factory;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->_factory = new TokenFactory(Token::class);
     }
