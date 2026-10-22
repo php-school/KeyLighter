@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         # lowest and highest supported PHP only, to keep CI cheap
-        php: ['7.4', '8.3']
+        php: ['7.4', '8.5']
     steps:
       - uses: actions/checkout@v4
 
