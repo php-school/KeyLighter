@@ -47,7 +47,7 @@ class Rule
      * @param MatcherInterface|null $matcher
      * @param array                 $options
      */
-    public function __construct(MatcherInterface $matcher = null, array $options = [])
+    public function __construct(?MatcherInterface $matcher = null, array $options = [])
     {
         $this->_matcher = $matcher;
 

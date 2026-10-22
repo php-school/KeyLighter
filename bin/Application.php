@@ -74,7 +74,7 @@ class Application extends SymfonyApplication
         $this->setDefaultCommand('highlight');
     }
 
-    public function run(InputInterface $input = null, OutputInterface $output = null)
+    public function run(?InputInterface $input = null, ?OutputInterface $output = null)
     {
         $output = $output ?: new ConsoleOutput();
 

@@ -23,7 +23,7 @@ class Result extends \ArrayObject implements Tokens
     private $_source;
     private $_start;
 
-    public function __construct($source, Token $start = null)
+    public function __construct($source, ?Token $start = null)
     {
         $this->_source = $source;
         $this->_start  = $start;
