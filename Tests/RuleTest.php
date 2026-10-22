@@ -87,7 +87,7 @@ class RuleTest extends TestCase
         $rule = new Rule(new WholeMatcher(), ['enabled' => false]);
 
         $rule->enable();
-        $this->assertNotEmpty($rule->match('source'));
+        $this->assertNotEmpty(iterator_to_array($rule->match('source')));
     }
 
     public function testMatcherReturning() {

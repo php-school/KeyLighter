@@ -130,7 +130,7 @@ class Rules extends \ArrayObject
     /**
      * @param Language $language
      */
-    public function setLanguage(Language $language = null)
+    public function setLanguage(?Language $language = null)
     {
         $this->_language = $language;
     }

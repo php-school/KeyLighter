@@ -30,8 +30,15 @@ use Kadet\Highlighter\Parser\TokenIterator;
  */
 class LanguageToken extends Token
 {
+    /**
+     * Declared to avoid dynamic property creation (deprecated in PHP 8.2). Unset when no
+     * injection is given so the value is resolved from the rule through Token::__get().
+     */
+    public $inject;
+
     public function __construct($name, $options = []) {
         parent::__construct($name, $options);
+        unset($this->inject);
         if(isset($options['inject'])) {
             $this->inject = $options['inject'];
         }

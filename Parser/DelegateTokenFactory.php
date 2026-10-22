@@ -29,7 +29,7 @@ class DelegateTokenFactory implements TokenFactoryInterface
      * @param callable (TokenFactoryInterface $factory, array $params) $function
      * @param TokenFactoryInterface|null                               $factory
      */
-    public function __construct(callable $function, TokenFactoryInterface $factory = null) {
+    public function __construct(callable $function, ?TokenFactoryInterface $factory = null) {
         $this->_factory  = $factory ?: new TokenFactory(Token::class);
         $this->_callable = $function;
     }

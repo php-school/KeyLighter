@@ -135,7 +135,7 @@ class KeyLighter
         return $this->_formatters;
     }
 
-    public function highlight($source, Language $language, FormatterInterface $formatter = null)
+    public function highlight($source, Language $language, ?FormatterInterface $formatter = null)
     {
         $formatter = $formatter ?: $this->getDefaultFormatter();
         return $formatter->format($language->parse($source));
